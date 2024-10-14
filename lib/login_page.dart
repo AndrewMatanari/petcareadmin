@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pet_care_admin/pages/dashboard_page.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -24,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
     } catch (e) {
       print('Login Failed: $e');
       ScaffolfdMessenger.of(context)
-          .showSnackerBar(SnackBar(content: Text('Login Gagal')));
+          .showSnackerBar(const SnackBar(content: Text('Login Gagal')));
       _emailController.clear();
     }
   }
@@ -32,24 +34,24 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Login Admin')),
+      appBar: AppBar(title: const Text('Login Admin')),
       body:Padding(padding: const EdgeInsets.all(16.0),
       chidl: Colum(
         children: [
           TextField(
             controller: _emailController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Email',
             ),
           ),
           TextField(
             controller: _passwordController,
-            decoration: InputDecoration(labelText: 'Password'),
+            decoration: const InputDecoration(labelText: 'Password'),
             obscureText: true,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           ElevatedButton(onPressed: _login,
-          child: Text('Login'),
+          child: const Text('Login'),
           )
         ]
       ))
